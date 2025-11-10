@@ -1,16 +1,16 @@
 // ===============================
-// Flexible Hello World for any port
+// Hello World for Vercel
 // ===============================
 const express = require('express');
 const app = express();
 
-// Use environment variable PORT or default to 3000
-const port = process.env.PORT || 3000;
+// Middleware to parse JSON (optional)
+app.use(express.json());
 
+// Main route
 app.get('/', (req, res) => {
-  res.send('<h1>Hello World from AWS ECS and GitHub Actions! 🚀</h1>');
+  res.send('<h1>Hello World from Vercel! 🚀</h1>');
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+// Export the app so Vercel can use it as a handler
+module.exports = app;
